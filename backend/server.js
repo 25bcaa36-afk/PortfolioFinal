@@ -1,5 +1,4 @@
 const express = require("express");
-const fs = require("fs");
 const path = require("path");
 const cors = require("cors");
 
@@ -10,19 +9,11 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-// Serve frontend
-const frontendPath = path.join(__dirname, "..");
+// Serve frontend (IMPORTANT: adjust if needed)
+const frontendPath = path.join(__dirname, "..", "frontend");
 app.use(express.static(frontendPath));
 
-// File path
-const messagesFile = path.join(__dirname, "messages.json");
-
-// Ensure file exists
-if (!fs.existsSync(messagesFile)) {
-  fs.writeFileSync(messagesFile, JSON.stringify([]));
-}
-
-// API route
+// Contact API (NO file writing)
 app.post("/contact", (req, res) => {
   const { name, email, message } = req.body;
 
@@ -30,13 +21,17 @@ app.post("/contact", (req, res) => {
     return res.status(400).json({ message: "All fields are required" });
   }
 
-  try {
-    console.log("📩 New message:", { name, email, message });
+  console.log("📩 New message:", { name, email, message });
 
-    res.json({ message: "Message received successfully!" });
+  res.json({ message: "Message received successfully!" });
+});
 
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Server error" });
-  }
+// Fallback route
+app.use((req, res) => {
+  res.sendFile(path.join(frontendPath, "index.html"));
+});
+
+// Start server
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
