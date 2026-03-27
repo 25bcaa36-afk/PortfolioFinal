@@ -49,8 +49,8 @@ app.post("/contact", (req, res) => {
   }
 });
 
-// Serve index.html for all routes
-app.get("*", (req, res) => {
+// ✅ FIXED fallback route (NO "*")
+app.use((req, res) => {
   res.sendFile(path.join(frontendPath, "index.html"));
 });
 
