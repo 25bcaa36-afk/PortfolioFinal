@@ -22,7 +22,7 @@ if (!fs.existsSync(messagesFile)) {
   fs.writeFileSync(messagesFile, JSON.stringify([]));
 }
 
-// Route
+// API route
 app.post("/contact", (req, res) => {
   const { name, email, message } = req.body;
 
@@ -51,10 +51,10 @@ app.post("/contact", (req, res) => {
 
 // Serve index.html for all routes
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "..", "index.html"));
+  res.sendFile(path.join(frontendPath, "index.html"));
 });
 
 // Start server
 app.listen(PORT, () => {
-  console.log(`🚀 Server running on port ${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
