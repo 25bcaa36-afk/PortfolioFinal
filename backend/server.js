@@ -9,11 +9,11 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-// Serve frontend (IMPORTANT: adjust if needed)
-const frontendPath = path.join(__dirname, "..", "frontend");
+// Serve frontend
+const frontendPath = path.join(__dirname, "..");
 app.use(express.static(frontendPath));
 
-// Contact API (NO file writing)
+// Contact API (NO file writing — safe for Render)
 app.post("/contact", (req, res) => {
   const { name, email, message } = req.body;
 
@@ -21,13 +21,13 @@ app.post("/contact", (req, res) => {
     return res.status(400).json({ message: "All fields are required" });
   }
 
-  console.log("📩 New message:", { name, email, message });
+  console.log("📩 Message received:", { name, email, message });
 
   res.json({ message: "Message received successfully!" });
 });
 
-// Fallback route
-app.use((req, res) => {
+// Default route (IMPORTANT FIX)
+app.get("/", (req, res) => {
   res.sendFile(path.join(frontendPath, "index.html"));
 });
 

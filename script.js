@@ -10,8 +10,8 @@ document.getElementById("contactForm").addEventListener("submit", async function
   try {
     const response = await fetch("https://portfoliofinal-um31.onrender.com/contact", {
       method: "POST",
-      headers: { 
-        "Content-Type": "application/json" 
+      headers: {
+        "Content-Type": "application/json"
       },
       body: JSON.stringify(data)
     });
@@ -22,6 +22,6 @@ document.getElementById("contactForm").addEventListener("submit", async function
 
   } catch (err) {
     console.error(err);
-    alert("Server not running or request failed.");
+    alert("Request failed");
   }
 });
