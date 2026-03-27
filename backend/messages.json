@@ -1,5 +1,6 @@
 [
   {
+<<<<<<< HEAD
     "name": "sarath",
     "email": "ssasdisudiua@gmail.com",
     "message": "hai this is ajo",
@@ -28,5 +29,47 @@
     "email": "kevenger66@gmail.com",
     "message": "hdschgsacshdhcusj",
     "date": "2026-03-26T10:31:53.500Z"
+=======
+    "name": "kevin",
+    "email": "kevenger66@gmail.com",
+    "message": "best",
+    "date": "2026-02-11T13:04:45.512Z"
+  },
+  {
+    "name": "kevin",
+    "email": "kevenger66@gmail.com",
+    "message": "best",
+    "date": "2026-02-11T13:04:45.521Z"
+  },
+  {
+    "name": "tanya",
+    "email": "tanya09190@gmail.com",
+    "message": "helloo wanna connect",
+    "date": "2026-02-11T13:17:25.839Z"
+  },
+  {
+    "name": "tanu",
+    "email": "tanya09190@gmail.com",
+    "message": "hiiiiiiiiiiiiiiii",
+    "date": "2026-02-11T13:31:32.669Z"
+  },
+  {
+    "name": "tanu",
+    "email": "tanya09190@gmail.com",
+    "message": "oksyyyyy",
+    "date": "2026-02-11T13:33:45.108Z"
+  },
+  {
+    "name": "kevin",
+    "email": "kevenger66@gmail.com",
+    "message": "lol",
+    "date": "2026-02-11T13:35:03.309Z"
+  },
+  {
+    "name": "kevin",
+    "email": "kevinedits11@gmail.com",
+    "message": "LESS GOo",
+    "date": "2026-02-12T12:30:10.110Z"
+>>>>>>> 656e143340c348435de4bfa3cc46779eaf2a3ee5
   }
 ]
