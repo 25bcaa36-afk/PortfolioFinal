@@ -31,30 +31,12 @@ app.post("/contact", (req, res) => {
   }
 
   try {
-    const messages = JSON.parse(fs.readFileSync(messagesFile, "utf8"));
+    console.log("📩 New message:", { name, email, message });
 
-    messages.push({
-      name,
-      email,
-      message,
-      date: new Date().toISOString()
-    });
-
-    fs.writeFileSync(messagesFile, JSON.stringify(messages, null, 2));
-
-    res.json({ message: "Message saved successfully!" });
+    res.json({ message: "Message received successfully!" });
 
   } catch (error) {
+    console.error(error);
     res.status(500).json({ message: "Server error" });
   }
-});
-
-// ✅ FIXED fallback route (NO "*")
-app.use((req, res) => {
-  res.sendFile(path.join(frontendPath, "index.html"));
-});
-
-// Start server
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
 });
